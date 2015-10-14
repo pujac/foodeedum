@@ -9,7 +9,10 @@ require_once 'includes/define.php';
 require_once 'includes/functions.php';
 
 $return = menu_handler();
+//print_r($_SERVER['SERVER_NAME']);
+//print_r($_SERVER['REQUEST_URI']); 
 // Menu status constants are integers; page content is a string.
+$output = '';
 if (is_int($return)) {
   switch ($return) {
     case MENU_NOT_FOUND:
@@ -18,7 +21,7 @@ if (is_int($return)) {
   }
 }
 elseif (isset($return)) {
-
+  $output = $return;
 }
 ?>
 <html>
