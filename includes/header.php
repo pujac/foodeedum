@@ -1,15 +1,28 @@
 <?php
 	//echo "here";
+	$menu_details = menu_list(HEADER_MENU);
+	if(!empty($menu_details)){
+		$output = '';
+		foreach($menu_details AS $value) {
+			$path = get_path();
+			if($path['path_type_id'] == $value['id']){
+				$class = 'current';
+			}
+			else{
+				$class = '';
+			}
+		  $output .= '<li><a href="?q=menu/' . $value['id'] . '" class="' . $class . '">' . $value['name'] . '</a></li>';
+		}
+	}
+	else{
+		//do nothing
+	}
+
 ?>
 <header>
 	<nav>
 		<ul id="nav">
-			<li><a href="?q=home" class="current">Home</a></li>
-			<li><a href="?q=about">About</a></li>
-			<li><a href="">Menu</a></li>
-			<li><a href="">Gallery</a></li>
-			<li><a href="">Reviews</a></li>
-			<li><a href="">Contact</a></li>
+		  <?php echo $output; ?>
 		</ul>
 	</nav>
 	<br />

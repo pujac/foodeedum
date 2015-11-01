@@ -4,14 +4,11 @@
  * The PHP page that serves all page requests 
  */
 //include necessary files
-require_once 'includes/header.php';
 require_once 'includes/define.php';
 require_once 'includes/functions.php';
+require_once 'includes/header.php';
 
 $return = menu_handler();
-//print_r($_SERVER['SERVER_NAME']);
-//print_r($_SERVER['REQUEST_URI']); 
-// Menu status constants are integers; page content is a string.
 $output = '';
 if (is_int($return)) {
   switch ($return) {
@@ -27,7 +24,7 @@ elseif (isset($return)) {
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Connoisseur</title>
+	<title>Foodeedum</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="css/base.css" rel="stylesheet" type="text/css" media="screen" />
 	<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
@@ -35,7 +32,7 @@ elseif (isset($return)) {
 	</head>
 	<body>
     <div id="container">
-       <?php print $output; ?>
+       <?php echo $output; ?>
     </div>
 </body>
 </html>
