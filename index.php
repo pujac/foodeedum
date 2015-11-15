@@ -11,8 +11,6 @@ require_once 'includes/define.php';
 require_once 'includes/functions.php';
 check_db_config();
 require_once 'includes/header.php';
-
-
 $return = menu_handler();
 $output = '';
 if (is_int($return)) {
